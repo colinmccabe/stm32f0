@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug (OpenOCD)",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "./main.elf",
+            "device": "STM32F051R8T6",
+            "configFiles": [
+                "/usr/share/openocd/scripts/board/stm32f0discovery.cfg"
+            ], 
+            "showDevDebugOutput": "none",
+        }
+    ]
+}

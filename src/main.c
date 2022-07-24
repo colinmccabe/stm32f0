@@ -14,13 +14,11 @@ void delay_ms( uint32_t ms ) {
 
   // Wait until the system reaches that tick value.
   // Use the 'wait for interrupt' instruction to save power.
-  while ( systick < next ) { __asm__( "WFI" ); }
+  while ( systick < next ) __WFI();
 }
 
-void delay(uint32_t ticks) {
-	for (uint32_t i = 0; i < ticks; ++i) {
-		__asm__ __volatile__("nop");
-	}
+void delay_nop(uint32_t iterations) {
+	for (uint32_t i = 0; i < iterations; ++i) __NOP();
 }
 
 // SysTick interrupt handler: increment the global 'systick' value.
